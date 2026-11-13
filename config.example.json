@@ -1,0 +1,14 @@
+{
+  "categories": {
+    "Images": [".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg", ".bmp", ".ico", ".heic"],
+    "Documents": [".pdf", ".doc", ".docx", ".txt", ".md", ".rtf", ".odt", ".csv", ".xlsx", ".xls", ".pptx", ".ppt"],
+    "Archives": [".zip", ".rar", ".7z", ".tar", ".gz", ".bz2", ".xz"],
+    "Audio": [".mp3", ".wav", ".flac", ".aac", ".ogg", ".m4a"],
+    "Video": [".mp4", ".mkv", ".avi", ".mov", ".webm", ".wmv"],
+    "Code": [".py", ".js", ".ts", ".html", ".css", ".json", ".yaml", ".yml", ".xml", ".sql", ".sh", ".bat", ".ps1"],
+    "Installers": [".exe", ".msi", ".dmg", ".pkg", ".deb", ".rpm", ".apk"]
+  },
+  "ignore_extensions": [".crdownload", ".part", ".tmp", ".download"],
+  "ignore_names": ["desktop.ini", ".DS_Store", "Thumbs.db", ".smart_organizer_history.json"],
+  "fallback_category": "Other"
+}
