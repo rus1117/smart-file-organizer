@@ -1,3 +1,5 @@
+[English](#smart-file-organizer) | [Русский](#умный-сортировщик-файлов)
+
 # Smart File Organizer
 
 A lightweight Python CLI tool that sorts cluttered folders such as `Downloads` into clean category directories without external runtime dependencies.
@@ -63,5 +65,73 @@ pytest
 ```
 
 ## License
+
+MIT
+
+# Умный сортировщик файлов
+
+Лёгкая консольная утилита на Python для сортировки файлов в папке «Загрузки» (`Downloads`) и других директориях без внешних зависимостей для запуска.
+
+## Возможности
+
+- Распределяет файлы по категориям на основе расширений (`Images`, `Documents`, `Archives`, `Audio`, `Video`, `Code`, `Installers`, `Other`).
+- Пропускает недокачанные файлы браузеров (`.crdownload`, `.part`, `.tmp`, `.download`) и служебные файлы системы (`desktop.ini`, `.DS_Store`, `Thumbs.db`).
+- Защищает от случайной перезаписи: при совпадении имён добавляет номер (`report.pdf` становится `report (1).pdf`).
+- Поддерживает режим предпросмотра `--dry-run` (`-n`) без изменения файлов на диске.
+- Группирует файлы по месяцам изменения (`YYYY-MM`) с флагом `--by-date` (`-d`).
+- Откатывает последний запуск командой `--undo` и удаляет созданные пустые подпапки.
+- Поддерживает собственные правила сортировки через JSON-конфигурацию.
+
+## Требования
+
+- Python 3.10 или выше
+- `pytest` (нужен только для запуска тестов)
+
+## Установка
+
+Клонируйте репозиторий и установите пакет локально:
+
+```bash
+git clone https://github.com/rus1117/smart-file-organizer.git
+cd smart-file-organizer
+pip install -e .
+```
+
+Утилиту можно запускать и без установки: укажите `PYTHONPATH=src` и выполните `python -m smart_organizer`.
+
+## Использование
+
+Проверить, какие перемещения планируются в папке `~/Downloads`, без изменения файлов:
+
+```bash
+smart-organizer --dry-run
+```
+
+Рассортировать папку с группировкой по месяцам и подробным выводом:
+
+```bash
+smart-organizer ~/Downloads --by-date --verbose
+```
+
+Применить свой файл конфигурации по образцу [config.example.json](config.example.json):
+
+```bash
+smart-organizer ~/Downloads --config config.example.json
+```
+
+Отменить последнюю сортировку в указанной папке:
+
+```bash
+smart-organizer ~/Downloads --undo
+```
+
+## Запуск тестов
+
+```bash
+pip install -e ".[dev]"
+pytest
+```
+
+## Лицензия
 
 MIT
